@@ -1,4 +1,14 @@
-Open tunnel to service instance of persistency service Postgres:
+Steps :
+- In cockpit create Postgre SQL service instance named 'postgre-db' (Cloud Foundry)
+- In Web-IDE 
+	- Create MTA
+	- Create Node.Js module
+	- mta.yml : require the existing cf service instance to the new Node.Js module
+	- Build whole app
+	- Run in web ide
+	- Deploy the app (cf deploy the mtar file. remember CF CLI MTAR https://github.com/cloudfoundry-incubator/multiapps-cli-plugin.
+
+To open tunnel to service instance of persistency service Postgres:
 https://help.sap.com/viewer/6be7ed96ddeb4e158c2107c434142545/Cloud/en-US/7547876937594510aa13cfaf693d07b1.html
 
 0. cf allow-space-ssh SPACE_NAME
