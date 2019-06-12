@@ -11,6 +11,30 @@ modules:
          url: ${default-url}
    requires:
        - name: postgre-db
+
+ - name: frontend
+   type: html5
+   path: frontend
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_training
+    - name: dest_training
+
 resources:
   - name: postgre-db
     type: org.cloudfoundry.existing-service
+  - name: uaa_training
+    parameters:
+       path: ./xs-security.json
+       service-plan: application
+       service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_training
+    parameters:
+       service-plan: lite
+       service: destination
+    type: org.cloudfoundry.managed-service

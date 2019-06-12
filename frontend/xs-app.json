@@ -1,0 +1,19 @@
+{
+  "welcomeFile": "/frontend/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/frontend/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    },
+    {
+	  "source": "^/northwind/(.*)$",
+	  "target": "/$1",
+	  "destination": "Northwind"
+    }
+  ]
+}
