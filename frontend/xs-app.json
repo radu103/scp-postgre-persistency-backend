@@ -14,6 +14,13 @@
 	  "source": "^/northwind/(.*)$",
 	  "target": "/$1",
 	  "destination": "Northwind"
+    },
+    {
+	  "source": "^/backend/(.*)$",
+	  "target": "/$1",
+	  "destination": "backend-destination",
+	  "csrfProtection": false,
+	  "authenticationType": "xsuaa"
     }
   ]
 }
