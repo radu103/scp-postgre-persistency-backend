@@ -18,6 +18,12 @@ https://help.sap.com/viewer/6be7ed96ddeb4e158c2107c434142545/Cloud/en-US/7547876
 4. cf restart APP_NAME
 5. cf ssh APP_NAME -L 5432:SERVICE_INSTANCE_HOSTNAME:SERVICE_INSTANCE_PORT
 
+How to bind the backend to frontend :
+- on the backend module, require the db module for persistence
+- on the backend module, be sure that provides and api name with properties url : ${default-url}
+- on the frontend module, require the backend module
+- on the frontend, edit the xs-app.json (configuration file for the approuter) add the router for the backend destination (the name of the destination is exactly the name of the api provided by the backend module)
+
 Example of Postgres credentials :
 {
 	"hostname": "10.11.241.16",
