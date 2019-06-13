@@ -1,0 +1,3 @@
+service {
+    "training.db::data.test" as "DataTest";
+}

@@ -21,6 +21,13 @@
 	  "destination": "backend-destination",
 	  "csrfProtection": false,
 	  "authenticationType": "xsuaa"
+    },
+    {
+	  "source": "^/hana-backend/(.*)$",
+	  "target": "/$1",
+	  "destination": "hana-backend-destination",
+	  "csrfProtection": false,
+	  "authenticationType": "xsuaa"
     }
   ]
 }

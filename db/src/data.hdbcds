@@ -1,0 +1,7 @@
+namespace training.db;
+
+context data {
+	entity test {
+		Key ID : String(36);
+	}
+};

@@ -28,6 +28,28 @@ modules:
           name: backend-destination
           url: '~{url}'
           forwardAuthToken: true
+      - name: hana-backend_api
+        group: destinations
+        properties:
+          name: hana-backend-destination
+          url: '~{url}'
+          forwardAuthToken: true
+
+  - name: db
+    type: hdb
+    path: db
+    requires:
+     - name: hdi_db
+  - name: hana-backend
+    type: nodejs
+    path: hana-backend
+    provides:
+     - name: hana-backend_api
+       properties:
+          url: ${default-url}
+    requires:
+     - name: hdi_db
+     - name : db
 resources:
   - name: postgre-db
     type: org.cloudfoundry.existing-service
@@ -42,3 +64,8 @@ resources:
       service-plan: lite
       service: destination
     type: org.cloudfoundry.managed-service
+  - name: hdi_db
+    properties:
+       hdi-container-name: ${service-name}
+    type: com.sap.xs.hdi-container
+
